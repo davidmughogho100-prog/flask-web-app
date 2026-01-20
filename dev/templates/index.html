@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <!-- upload form -->
+    <form method="POST" action="{{ url_for('view.home_page') }}" enctype="multipart/form-data">
+        <input type="file" name="user_file">
+        <input type="submit" value="submit">
+    </form>
+{% endblock %}

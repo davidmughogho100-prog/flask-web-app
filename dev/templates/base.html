@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{{ url_for('static', filename ='main.css') }}">
+	<title>{{ title }}</title>
+</head>
+<body class="main">
+	<nav>
+		<p>
+        <a href="{{ url_for('view.home_page') }}">home</a>
+        <a href="{{ url_for('auth.login_page') }}">login</a>
+        <a href="{{ url_for('auth.register_page') }}">register</a>
+        <a href="{{ url_for('view.download_page') }}">download</a>
+		</p>
+	</nav>
+	<hr>
+
+    {% block content %}{% endblock %}
+
+</body>
+</html>

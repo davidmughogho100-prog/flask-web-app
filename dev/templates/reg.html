@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<form method="POST" Action="{{ url_for('auth.register_page') }}" >
+		<input type="text" name="username" placeholder="enter username" required><br>
+		<input type="password" name="password" placeholder="enter password" required><br>
+		<input type="submit" value="save">
+	</form>                                                             
+{% endblock %}
