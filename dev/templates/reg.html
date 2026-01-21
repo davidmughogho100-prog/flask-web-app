@@ -3,9 +3,11 @@
 
 {% block content %}
 <h1>registration</h1>
-<form method="POST" Action="{{ url_for('auth.register_page') }}" >
-		<input type="text" name="username" placeholder="enter username" required><br>
+    <form method="POST" Action="{{ url_for('auth.register_page') }}" >
+        <input type="text" name="username" placeholder="enter full name" required><br>
+		<input type="text" name="email" placeholder="enter email" required><br>
 		<input type="password" name="password" placeholder="enter password" required><br>
+		<input type="password" name="c_password" placeholder="confirm password" required><br>
 		<input type="submit" value="save">
 	</form>                                                             
 {% endblock %}

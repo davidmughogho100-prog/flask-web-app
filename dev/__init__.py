@@ -6,20 +6,21 @@ db = SQLAlchemy()
 UPLOAD_FOLDER = "uploads/"
 def create_app():
     app = Flask(__name__)
+
     app.config["SECRET_KEY"] = "hash"
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
     app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
+    db.init_app(app)
     # import database model
     #from .models import User
     from .auth import auth
     from .views import view
 
     # register the blueprints
-    app.register_blueprint(auth, url_prefix="/")
+    app.register_blueprint(auth, url_prefix="/auth")
     app.register_blueprint(view, url_prefix="/")
     # create the database
-    db.init_app(app)
     create_database(app)
 
     return app
