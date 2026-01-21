@@ -16,7 +16,7 @@ def create_app():
     from .views import view
 
     # register the blueprints
-    app.register_blueprint(auth, url_prefix="/")
+    app.register_blueprint(auth, url_prefix="/auth")
     app.register_blueprint(view, url_prefix="/")
     # create the database
     db.init_app(app)
