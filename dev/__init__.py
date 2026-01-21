@@ -1,15 +1,13 @@
 from flask import Flask
 import os
 from flask_sqlalchemy import SQLAlchemy
+from .config import Config
 
 db = SQLAlchemy()
 UPLOAD_FOLDER = "uploads/"
 def create_app():
     app = Flask(__name__)
-
-    app.config["SECRET_KEY"] = "hash"
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
-    app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+    app.config.from_object(Config)
 
     db.init_app(app)
     # import database model

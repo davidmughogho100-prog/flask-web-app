@@ -2,12 +2,28 @@
 
 
 {% block content %}
-<h1>registration</h1>
-    <form method="POST" Action="{{ url_for('auth.register_page') }}" >
-        <input type="text" name="username" placeholder="enter full name" required><br>
-		<input type="text" name="email" placeholder="enter email" required><br>
-		<input type="password" name="password" placeholder="enter password" required><br>
-		<input type="password" name="c_password" placeholder="confirm password" required><br>
-		<input type="submit" value="save">
-	</form>                                                             
+<form method="POST" Action="{{ url_for('auth.register_page') }}" >
+    <h1>Register</h1>
+    {{ form.hidden_tag() }}
+
+    <p>
+        {{ form.full_name.label }}
+        {{ form.full_name(size=30) }}
+    </p>
+    <p>
+        {{ form.email.label }}
+        {{ form.email(size=30) }}
+    </p>
+      <p>
+        {{ form.password.label }}
+        {{ form.password(size=30) }}
+    </p>
+    <p>
+        {{ form.c_password.label }}
+        {{ form.c_password(size=30) }}
+    </p>
+   <p>
+        {{ form.submit() }}
+    </p>
+</form>
 {% endblock %}
