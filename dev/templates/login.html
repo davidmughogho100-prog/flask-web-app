@@ -2,9 +2,22 @@
 
 {% block content %}
 	<form method="POST" Action="{{ url_for('auth.login_page') }}" >
-		<input type="text" name="username" placeholder="enter username" required><br>
-		<input type="password" name="password" placeholder="enter password" required><br>
-		<input type="submit" value="save">
-	</form>
+        <!-- flask form -->
+        <h1>Login</h1>
+        {{ form.hidden_tag() }}
+
+         <p>
+        {{ form.email.label }}<br>
+        {{ form.email(size=30) }}
+        </p>
+        <p>
+        {{ form.password.label }}<br>
+        {{ form.password(size=30) }}
+        </p>
+
+        <p>
+        {{ form.submit() }}<br>
+        </p>
+    </form> 
 {% endblock %}
 
